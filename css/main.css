@@ -681,7 +681,7 @@ body.combo-active [data-btn] { cursor: crosshair; }
 .rd-fader-thumb::before { top: 5px; }
 .rd-fader-thumb::after { bottom: 5px; }
 
-.rd-groups { display: flex; flex-direction: column; gap: 4px; align-items: center; padding-top: 8px; }
+.rd-groups { display: flex; flex-direction: column; gap: 4px; align-items: center; justify-content: space-evenly; }
 .rd-group {
   width: 24px;
   height: 24px;
@@ -697,8 +697,8 @@ body.combo-active [data-btn] { cursor: crosshair; }
 }
 .rd-group svg { width: 100%; height: 100%; }
 
-.rd-pads-wrap { display: flex; flex-direction: column; }
-.rd-pad-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-bottom: 1px; }
+.rd-pads-wrap { display: flex; flex-direction: column; gap: 0; }
+.rd-pad-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
 .rd-pad {
   background: linear-gradient(180deg, #fafafa 0%, #f0ebd6 100%);
   border: 1px solid #1a1a1a;
@@ -709,19 +709,17 @@ body.combo-active [data-btn] { cursor: crosshair; }
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
   font-size: 22px;
   color: #1a4d1a;
   font-weight: 700;
   box-shadow: inset 0 -2px 3px rgba(0, 0, 0, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.6);
-  margin: 1px;
   position: relative;
   font-family: inherit;
 }
 .rd-pad:active { box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2); }
 .rd-pad.enter { font-size: 9px; letter-spacing: 1px; color: #1a1a1a; font-family: 'Arial Black', Arial, sans-serif; }
 
-.rd-pad-label-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; padding: 1px 4px; }
+.rd-pad-label-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; padding: 0 2px; margin-top: 2px; }
 .rd-pad-label {
   display: flex;
   align-items: center;
@@ -731,6 +729,8 @@ body.combo-active [data-btn] { cursor: crosshair; }
   font-weight: 800;
   letter-spacing: 0.5px;
   color: #4a4a48;
+  line-height: 1;
+  padding: 1px 0;
 }
 .rd-pad-label .ld {
   width: 4px;
@@ -739,7 +739,7 @@ body.combo-active [data-btn] { cursor: crosshair; }
   background: #1a1a1a;
 }
 
-.rd-rightcol { display: flex; flex-direction: column; gap: 4px; }
+.rd-rightcol { display: flex; flex-direction: column; gap: 4px; justify-content: space-between; }
 .rd-fbtn-wrap { display: flex; flex-direction: column; align-items: stretch; }
 .rd-fbtn {
   background: #f4efdd;
