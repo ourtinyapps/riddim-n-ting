@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riddim + Ting Learning Guide</title>
+<meta name="description" content="Interactive learning guide for the Teenage Engineering EP-40 Riddim and EP-2350 Ting. Search button combos, hold shift to discover combos, and browse the full reference table.">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- ============================================================================
+     SVG ICON LIBRARY (referenced via <use href="#id">)
+     ============================================================================ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="ic-leaf" viewBox="0 0 16 16"><path d="M2 14 Q2 4 14 2 Q12 12 2 14 Z" fill="#f2691f"/><path d="M3 13 L11 5" stroke="#0d2a08" stroke-width="1" fill="none"/></symbol>
+    <symbol id="ic-square" viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="12" rx="1" fill="#0d2a08"/></symbol>
+    <symbol id="ic-square-or" viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="12" rx="1" fill="#f2691f"/></symbol>
+    <symbol id="ic-mute" viewBox="0 0 16 16"><rect x="0" y="0" width="16" height="16" rx="2" fill="#0d2a08"/><text x="8" y="11" font-family="Arial" font-size="6" font-weight="900" fill="#5db94f" text-anchor="middle">MUTE</text></symbol>
+    <symbol id="ic-bar" viewBox="0 0 16 16"><rect x="0" y="0" width="16" height="16" rx="2" fill="#4a9fe2"/><text x="8" y="11" font-family="Arial" font-size="7" font-weight="900" fill="#fff" text-anchor="middle">BAR</text></symbol>
+    <symbol id="ic-bpm" viewBox="0 0 16 16"><rect x="0" y="0" width="16" height="16" rx="2" fill="#0d2a08"/><text x="8" y="11" font-family="Arial" font-size="6.5" font-weight="900" fill="#5db94f" text-anchor="middle">BPM</text></symbol>
+    <symbol id="ic-tic" viewBox="0 0 16 16"><path d="M2 8 L0 0 L8 2 L4 6 L14 16 L8 14 L2 8 Z" fill="#0d2a08"/></symbol>
+    <symbol id="ic-up" viewBox="0 0 16 16"><path d="M8 2 L14 10 L11 10 L11 14 L5 14 L5 10 L2 10 Z" fill="#0d2a08"/></symbol>
+    <symbol id="ic-down" viewBox="0 0 16 16"><path d="M8 14 L14 6 L11 6 L11 2 L5 2 L5 6 L2 6 Z" fill="#0d2a08"/></symbol>
+    <symbol id="ic-rec" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="#e84a1b"/></symbol>
+    <symbol id="ic-play" viewBox="0 0 16 16"><path d="M3 2 L13 8 L3 14 Z" fill="#fff"/></symbol>
+    <symbol id="ic-loop" viewBox="0 0 16 16"><path d="M3 8 A5 5 0 0 1 13 8 L11 6 M13 8 A5 5 0 0 1 3 8 L5 10" stroke="#0d2a08" stroke-width="1.5" fill="none"/></symbol>
+    <symbol id="ic-grid" viewBox="0 0 16 16"><rect x="2" y="2" width="3" height="3" fill="#0d2a08"/><rect x="7" y="2" width="3" height="3" fill="#0d2a08"/><rect x="12" y="2" width="3" height="3" fill="#0d2a08"/><rect x="2" y="7" width="3" height="3" fill="#0d2a08"/><rect x="7" y="7" width="3" height="3" fill="#0d2a08"/><rect x="12" y="7" width="3" height="3" fill="#0d2a08"/></symbol>
+    <symbol id="ic-lion" viewBox="0 0 16 16"><circle cx="8" cy="9" r="5" fill="#0d2a08"/><path d="M2 7 L4 4 L6 6 M14 7 L12 4 L10 6 M3 12 L1 14 M13 12 L15 14 M8 4 L8 1" stroke="#0d2a08" stroke-width="1" fill="none"/><circle cx="6.5" cy="9" r=".8" fill="#5db94f"/><circle cx="9.5" cy="9" r=".8" fill="#5db94f"/></symbol>
+    <symbol id="ic-house" viewBox="0 0 16 16"><path d="M8 2 L14 8 L13 8 L13 14 L3 14 L3 8 L2 8 Z" fill="#0d2a08"/><rect x="6" y="9" width="4" height="5" fill="#5db94f"/></symbol>
+    <symbol id="ic-fist" viewBox="0 0 16 16"><rect x="3" y="6" width="10" height="8" rx="2" fill="#f2691f"/><rect x="4" y="4" width="2" height="3" fill="#f2691f"/><rect x="7" y="4" width="2" height="3" fill="#f2691f"/><rect x="10" y="4" width="2" height="3" fill="#f2691f"/></symbol>
+    <symbol id="ic-mic" viewBox="0 0 16 16"><rect x="6" y="2" width="4" height="7" rx="2" fill="#0d2a08"/><path d="M4 8 Q4 12 8 12 Q12 12 12 8 M8 12 L8 14 M5 14 L11 14" stroke="#0d2a08" stroke-width="1.2" fill="none"/></symbol>
+    <symbol id="ic-palm" viewBox="0 0 16 16"><path d="M8 14 L7 8 M2 5 Q5 3 8 6 M14 5 Q11 3 8 6 M3 8 Q5 5 8 6 M13 8 Q11 5 8 6 M5 4 Q7 2 8 6 M11 4 Q9 2 8 6" stroke="#0d2a08" stroke-width="1.2" fill="none"/></symbol>
+    <symbol id="ic-star" viewBox="0 0 16 16"><path d="M8 1 L9.5 6 L15 6 L10.5 9.5 L12 14.5 L8 11.5 L4 14.5 L5.5 9.5 L1 6 L6.5 6 Z" fill="#0d2a08"/></symbol>
+    <symbol id="ic-warn" viewBox="0 0 16 16"><path d="M8 2 L15 14 L1 14 Z" fill="#0d2a08"/><text x="8" y="13" font-family="Arial" font-size="7" font-weight="900" fill="#5db94f" text-anchor="middle">!</text></symbol>
+    <symbol id="ic-print" viewBox="0 0 16 16"><rect x="3" y="6" width="10" height="6" fill="#0d2a08"/><rect x="5" y="3" width="6" height="3" fill="#0d2a08"/><rect x="5" y="10" width="6" height="3" fill="#5db94f" stroke="#0d2a08" stroke-width="1"/></symbol>
+    <symbol id="ic-meter" viewBox="0 0 16 16"><rect x="2" y="3" width="2" height="10" fill="#5db94f"/><rect x="6" y="5" width="2" height="8" fill="#4a9fe2"/><rect x="10" y="2" width="2" height="11" fill="#f2691f"/></symbol>
+    <symbol id="ic-fan" viewBox="0 0 16 16"><circle cx="8" cy="8" r="2" fill="#0d2a08"/><path d="M8 6 Q4 4 4 1 Q7 3 8 6 M8 6 Q12 4 12 1 Q9 3 8 6 M6 8 Q4 12 1 12 Q3 9 6 8 M10 8 Q12 12 15 12 Q13 9 10 8" fill="#0d2a08"/></symbol>
+    <symbol id="ic-target" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#0d2a08" stroke-width="1"/><circle cx="8" cy="8" r="3" fill="none" stroke="#0d2a08" stroke-width="1"/><circle cx="8" cy="8" r="1" fill="#0d2a08"/></symbol>
+    <symbol id="ic-shoe" viewBox="0 0 16 16"><path d="M2 11 Q2 8 5 8 L8 8 Q11 8 13 10 L14 12 L13 14 L3 14 Q2 13 2 11 Z" fill="#0d2a08"/></symbol>
+    <symbol id="ic-leaves-bl" viewBox="0 0 16 16"><path d="M2 14 L8 8 M14 14 L8 8 M5 14 L8 8 M11 14 L8 8 M8 14 L8 4" stroke="#4a9fe2" stroke-width="1.5" fill="none"/></symbol>
+    <symbol id="ic-leaves-gn" viewBox="0 0 16 16"><path d="M2 14 L8 8 M14 14 L8 8 M5 14 L8 8 M11 14 L8 8 M8 14 L8 4" stroke="#3da84a" stroke-width="1.5" fill="none"/></symbol>
+    <symbol id="ic-leaves-or" viewBox="0 0 16 16"><path d="M2 14 L8 8 M14 14 L8 8 M5 14 L8 8 M11 14 L8 8 M8 14 L8 4" stroke="#f2691f" stroke-width="1.5" fill="none"/></symbol>
+    <symbol id="ic-q" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#0d2a08" stroke-width="2"/><path d="M11 11 L14 14" stroke="#0d2a08" stroke-width="2"/></symbol>
+    <symbol id="ic-peace" viewBox="0 0 16 16"><path d="M5 14 L7 8 M11 14 L9 8 M7 8 L8 4 M9 8 L8 4 M6 4 L7 7 M10 4 L9 7" stroke="#0d2a08" stroke-width="1.4" fill="none"/></symbol>
+    <symbol id="ic-keys" viewBox="0 0 16 16"><rect x="1" y="5" width="14" height="8" fill="#fff" stroke="#0d2a08" stroke-width="1"/><rect x="3" y="5" width="2" height="5" fill="#0d2a08"/><rect x="7" y="5" width="2" height="5" fill="#0d2a08"/><rect x="11" y="5" width="2" height="5" fill="#0d2a08"/></symbol>
+    <symbol id="ic-pencil" viewBox="0 0 16 16"><path d="M2 14 L4 12 L12 4 L14 6 L6 14 Z" fill="#0d2a08"/><path d="M11 5 L13 7" stroke="#5db94f" stroke-width="1"/></symbol>
+    <symbol id="ic-circle-or" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="#f2691f"/></symbol>
+    <symbol id="ic-circle-dk" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="#0d2a08"/></symbol>
+    <symbol id="ic-asterisk" viewBox="0 0 16 16"><path d="M8 2 L8 14 M2 8 L14 8 M3.5 3.5 L12.5 12.5 M12.5 3.5 L3.5 12.5" stroke="#0d2a08" stroke-width="2"/></symbol>
+  </defs>
+</svg>
+
+<div class="rd-app">
+
+  <!-- TOP BAR -->
+  <div class="rd-topbar">
+    <h2>RIDDIM</h2>
+    <div class="rd-search-wrap">
+      <input class="rd-search" id="rdSearch" placeholder="Search... 'chop', 'new pattern', 'undo', 'tempo', 'sync'" autocomplete="off" />
+      <div class="rd-results" id="rdResults"></div>
+    </div>
+    <div class="rd-topbar-actions">
+      <button class="rd-btn-base combo" id="rdComboBtn" title="Toggle combo mode (or hold Shift on desktop)">+ COMBO</button>
+      <button class="rd-btn-base ting" id="rdTingBtn" title="Toggle Ting panel">+ TING</button>
+      <button class="rd-btn-base" id="rdClearBtn" title="Clear all">Clear</button>
+    </div>
+  </div>
+
+  <!-- COMBO BAR (hidden by default) -->
+  <div class="rd-combo-bar" id="rdComboBar">
+    <div class="rd-combo-head">
+      <span class="label">COMBO MODE</span>
+      <span style="font-size: 11px; color: #5a5a5a;">Tap buttons in sequence to find combos</span>
+      <span class="actions">
+        <button id="rdComboClear">Clear</button>
+        <button id="rdComboDone">Done</button>
+      </span>
+    </div>
+    <div class="rd-combo-buffer" id="rdComboBuffer">
+      <span class="rd-combo-hint">Click buttons in sequence...</span>
+    </div>
+    <div class="rd-combo-match" id="rdComboMatch"></div>
+  </div>
+
+  <!-- DEVICE STAGE -->
+  <div class="rd-stage">
+    <div class="rd-device">
+
+      <!-- I/O ROW -->
+      <div class="rd-iorow">
+        <div class="rd-iotab cream">OUTPUT</div>
+        <div class="rd-iotab orange">INPUT</div>
+        <div class="rd-greenpair">
+          <div class="rd-iotop"><span>I</span><span>O</span><span>I</span><span>O</span></div>
+          <div class="rd-iotab green">SYNC</div>
+          <div class="rd-iotab green">MIDI</div>
+        </div>
+        <div class="rd-iotab spacer"><div class="rd-power-btn"></div></div>
+        <div class="rd-iotab cream">USB</div>
+        <div class="rd-iotab cream">POWER</div>
+      </div>
+
+      <!-- LCD with overlapping brand plate + speaker -->
+      <div class="rd-lcd-container">
+        <div class="rd-lcd">
+          <div class="rd-lcd-screw t"></div>
+          <div class="rd-lcd-screw b"></div>
+
+          <div class="rd-brandplate">
+            <span class="scr3"></span><span class="scr4"></span>
+            <div class="rd-logo">RIDDIM</div>
+            <div class="rd-supertone">SUPERTONE</div>
+          </div>
+
+          <div class="rd-speaker-housing"><div class="rd-speaker"></div></div>
+
+          <div class="rd-lcd-content">
+            <div class="rd-lcd-icons">
+              <svg><use href="#ic-leaves-or"/></svg>
+              <svg><use href="#ic-square"/></svg>
+              <svg><use href="#ic-leaves-gn"/></svg>
+              <svg><use href="#ic-up"/></svg>
+              <svg><use href="#ic-target"/></svg>
+              <svg><use href="#ic-circle-dk"/></svg>
+              <svg><use href="#ic-bar"/></svg>
+              <svg><use href="#ic-mute"/></svg>
+              <svg><use href="#ic-square"/></svg>
+              <svg><use href="#ic-leaves-or"/></svg>
+              <svg><use href="#ic-up"/></svg>
+              <svg><use href="#ic-down"/></svg>
+              <svg><use href="#ic-grid"/></svg>
+              <svg><use href="#ic-tic"/></svg>
+              <svg><use href="#ic-keys"/></svg>
+              <svg><use href="#ic-square-or"/></svg>
+              <svg><use href="#ic-grid"/></svg>
+              <svg><use href="#ic-pencil"/></svg>
+              <svg><use href="#ic-rec"/></svg>
+              <svg><use href="#ic-play"/></svg>
+              <svg><use href="#ic-loop"/></svg>
+              <svg><use href="#ic-grid"/></svg>
+            </div>
+            <div class="rd-lcd-display"><div class="seg">88.88</div></div>
+            <div class="rd-lcd-icons">
+              <svg><use href="#ic-bpm"/></svg>
+              <svg><use href="#ic-star"/></svg>
+              <svg><use href="#ic-square-or"/></svg>
+              <svg><use href="#ic-circle-dk"/></svg>
+              <svg><use href="#ic-leaves-gn"/></svg>
+              <svg><use href="#ic-leaves-bl"/></svg>
+              <svg><use href="#ic-leaves-or"/></svg>
+              <svg><use href="#ic-leaves-gn"/></svg>
+              <svg><use href="#ic-shoe"/></svg>
+              <svg><use href="#ic-fan"/></svg>
+              <svg><use href="#ic-target"/></svg>
+              <svg><use href="#ic-leaves-bl"/></svg>
+              <svg><use href="#ic-leaves-or"/></svg>
+              <svg><use href="#ic-leaves-gn"/></svg>
+              <svg><use href="#ic-lion"/></svg>
+              <svg><use href="#ic-house"/></svg>
+              <svg><use href="#ic-fist"/></svg>
+              <svg><use href="#ic-mic"/></svg>
+              <svg><use href="#ic-meter"/></svg>
+              <svg><use href="#ic-q"/></svg>
+              <svg><use href="#ic-peace"/></svg>
+            </div>
+          </div>
+
+          <div class="rd-lcd-bottom">
+            <span class="grp"><svg><use href="#ic-leaves-gn"/></svg><svg><use href="#ic-circle-dk"/></svg><span class="lbl">SOUND</span></span>
+            <span class="grp"><svg><use href="#ic-pencil"/></svg><span class="lbl or">MAIN</span></span>
+            <span class="grp"><svg><use href="#ic-asterisk"/></svg><span class="lbl">TEMPO</span></span>
+            <span class="lbl">ERASE</span>
+            <span class="lbl">SYSTEM</span>
+            <span class="grp"><svg><use href="#ic-print"/></svg><svg><use href="#ic-warn"/></svg><span class="lbl">CLIP</span></span>
+            <span class="grp"><svg><use href="#ic-meter"/></svg><svg><use href="#ic-palm"/></svg><span class="lbl">SWING</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rd-original">ORIGINAL LAYERING MACHINE</div>
+
+      <!-- CONTROLS ROW -->
+      <div class="rd-controls">
+        <div class="rd-vol-wrap">
+          <div class="rd-ctrl-lbl">VOLUME</div>
+          <div class="rd-knob vol" data-btn="volume" title="Volume"></div>
+        </div>
+        <div class="rd-live-wrap">
+          <div class="rd-live-bracket"></div>
+          <div class="rd-live-grid">
+            <button class="rd-live-btn" data-btn="sound">SOUND</button>
+            <button class="rd-live-btn" data-btn="main">MAIN</button>
+            <button class="rd-live-btn" data-btn="tempo">TEMPO</button>
+            <button class="rd-live-btn" data-btn="edit">EDIT</button>
+            <button class="rd-live-btn commit" data-btn="commit">COMMIT</button>
+            <button class="rd-live-btn loop" data-btn="loop">LOOP</button>
+          </div>
+        </div>
+        <div class="rd-knob-bracket">
+          <div class="rd-ctrl-lbl">BPM</div>
+          <div class="rd-knob x" data-btn="knob-x" title="Knob X"><span class="knob-lbl">X</span></div>
+          <div class="rd-bracket-bottom"><div class="br"></div><div class="lbl">GAIN</div></div>
+        </div>
+        <div class="rd-knob-bracket">
+          <div class="rd-ctrl-lbl">METRONOME</div>
+          <div class="rd-knob y" data-btn="knob-y" title="Knob Y"><span class="knob-lbl">Y</span></div>
+          <div class="rd-bracket-bottom green"><div class="br"></div><div class="lbl">SWING</div></div>
+        </div>
+      </div>
+
+      <!-- LED INDICATORS -->
+      <div class="rd-leds-row">
+        <div></div>
+        <div class="rd-leds">
+          <div class="rd-led"><div class="dot off"></div><div class="lbl">LEVEL</div></div>
+          <div class="rd-led"><div class="dot on"></div><div class="lbl">PITCH</div></div>
+          <div class="rd-led"><div class="dot off"></div><div class="lbl">TIME</div></div>
+        </div>
+        <div></div><div></div>
+      </div>
+
+      <!-- MAIN GRID: pads, fader, side buttons -->
+      <div class="rd-main-grid">
+        <div class="rd-leftcol">
+          <button class="rd-fbtn keys" data-btn="keys">KEYS</button>
+          <button class="rd-fbtn fader-btn" data-btn="fader-btn">FADER</button>
+          <div class="rd-fader-track" data-btn="fader" title="Fader"><div class="rd-fader-thumb"></div></div>
+          <button class="rd-fbtn shift" data-btn="shift">SHIFT</button>
+        </div>
+        <div class="rd-groups">
+          <div class="rd-group" data-btn="group-a" title="Group A — Drums">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="14" r="6" fill="#f2691f" stroke="#1a1a1a" stroke-width="1"/><ellipse cx="12" cy="9" rx="6" ry="2" fill="#1a4d1a" stroke="#1a1a1a" stroke-width="1"/><line x1="6" y1="9" x2="6" y2="14" stroke="#1a1a1a"/><line x1="18" y1="9" x2="18" y2="14" stroke="#1a1a1a"/></svg>
+          </div>
+          <div class="rd-group" data-btn="group-b" title="Group B — Bass">
+            <svg viewBox="0 0 24 24"><circle cx="9" cy="17" r="5" fill="#f2691f" stroke="#1a1a1a"/><circle cx="9" cy="17" r="2" fill="#1a4d1a"/><rect x="11" y="3" width="3" height="13" fill="#1a4d1a" stroke="#1a1a1a"/><rect x="10" y="2" width="5" height="3" fill="#1a4d1a" stroke="#1a1a1a"/></svg>
+          </div>
+          <div class="rd-group" data-btn="group-c" title="Group C — Melodic">
+            <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" fill="#fff" stroke="#1a1a1a"/><rect x="5" y="6" width="2" height="7" fill="#1a1a1a"/><rect x="9" y="6" width="2" height="7" fill="#1a1a1a"/><rect x="13" y="6" width="2" height="7" fill="#1a1a1a"/><rect x="17" y="6" width="2" height="7" fill="#1a1a1a"/></svg>
+          </div>
+          <div class="rd-group" data-btn="group-d" title="Group D — FX/Vocal">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="#1a1a1a"/><circle cx="12" cy="12" r="5" fill="#f2691f"/><circle cx="12" cy="12" r="1.5" fill="#fff"/></svg>
+          </div>
+        </div>
+        <div class="rd-pads-wrap">
+          <div class="rd-pad-label-row"><div class="rd-pad-label"><span class="ld"></span>LPF</div><div class="rd-pad-label"><span class="ld"></span>HPF</div><div class="rd-pad-label"><span class="ld"></span>→FX</div></div>
+          <div class="rd-pad-row">
+            <button class="rd-pad" data-btn="pad-7">7</button>
+            <button class="rd-pad" data-btn="pad-8">8</button>
+            <button class="rd-pad" data-btn="pad-9">9</button>
+          </div>
+          <div class="rd-pad-label-row"><div class="rd-pad-label"><span class="ld"></span>ATK</div><div class="rd-pad-label"><span class="ld"></span>REL</div><div class="rd-pad-label"><span class="ld"></span>PAN</div></div>
+          <div class="rd-pad-row">
+            <button class="rd-pad" data-btn="pad-4">4</button>
+            <button class="rd-pad" data-btn="pad-5">5</button>
+            <button class="rd-pad" data-btn="pad-6">6</button>
+          </div>
+          <div class="rd-pad-label-row"><div class="rd-pad-label"><span class="ld"></span>TUNE</div><div class="rd-pad-label"><span class="ld"></span>VEL</div><div class="rd-pad-label"><span class="ld"></span>MOD</div></div>
+          <div class="rd-pad-row">
+            <button class="rd-pad" data-btn="pad-1">1</button>
+            <button class="rd-pad" data-btn="pad-2">2</button>
+            <button class="rd-pad" data-btn="pad-3">3</button>
+          </div>
+          <div class="rd-pad-row">
+            <button class="rd-pad" data-btn="pad-dot">·</button>
+            <button class="rd-pad" data-btn="pad-0">0</button>
+            <button class="rd-pad enter" data-btn="pad-enter">ENTER</button>
+          </div>
+        </div>
+        <div class="rd-rightcol">
+          <div class="rd-fbtn-wrap"><button class="rd-fbtn sm" data-btn="sample">SAMPLE</button><div class="rd-fbtn-sub">CHOP</div></div>
+          <div class="rd-fbtn-wrap"><button class="rd-fbtn sm" data-btn="fx">FX</button><div class="rd-fbtn-sub">OUTPUT</div></div>
+          <button class="rd-fbtn minus" data-btn="minus">−</button>
+          <button class="rd-fbtn rec" data-btn="record">RECORD</button>
+        </div>
+        <div class="rd-rightcol">
+          <div class="rd-fbtn-wrap"><button class="rd-fbtn sm" data-btn="timing">TIMING</button><div class="rd-fbtn-sub">CORRECT</div></div>
+          <div class="rd-fbtn-wrap"><button class="rd-fbtn sm" data-btn="erase">ERASE</button><div class="rd-fbtn-sub">SYSTEM</div></div>
+          <button class="rd-fbtn plus" data-btn="plus">+</button>
+          <button class="rd-fbtn play" data-btn="play">PLAY</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TING PANEL (slide-in) -->
+    <div class="rd-ting" id="rdTing">
+      <h3>EP-2350 TING</h3>
+      <div class="rd-ting-mic">
+        <div class="rd-ting-grille"></div>
+        <div class="rd-ting-label">TING <span class="fx">FX</span></div>
+        <div class="rd-ting-orange" data-btn="ting-orange" title="Preset slot select"></div>
+        <div class="rd-ting-handle" data-btn="ting-handle" title="Lever / handle"></div>
+        <div class="rd-ting-sides">
+          <div class="rd-ting-side" data-btn="ting-s1">1</div>
+          <div class="rd-ting-side" data-btn="ting-s2">2</div>
+          <div class="rd-ting-side" data-btn="ting-s3">3</div>
+          <div class="rd-ting-side" data-btn="ting-s4">4</div>
+        </div>
+      </div>
+      <div class="rd-ting-section">
+        <h4>4 EFFECT PRESETS</h4>
+        <div class="rd-ting-presets">
+          <button class="rd-ting-preset" data-cmd="ting-echo">Echo</button>
+          <button class="rd-ting-preset" data-cmd="ting-spring">Echo + Spring</button>
+          <button class="rd-ting-preset" data-cmd="ting-pixie">Pixie</button>
+          <button class="rd-ting-preset" data-cmd="ting-robot">Robot</button>
+        </div>
+      </div>
+      <div class="rd-ting-section">
+        <h4>MODULATION</h4>
+        <p><b>Lever</b> — wet amount.<br><b>Shake</b> — accelerometer.<br><b>Lever fully down</b> — secret button.</p>
+      </div>
+      <div class="rd-ting-section">
+        <h4>RECOVERY</h4>
+        <p>USB-C + hold green &amp; white buttons during boot to fix broken JSON config.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- INFO CARD -->
+  <div class="rd-info" id="rdInfo"></div>
+
+  <!-- SECTIONS REFERENCE -->
+  <div class="rd-sections-wrap">
+    <h3 class="rd-sections-title">All commands by section</h3>
+    <p class="rd-sections-sub">Organised per the <a href="https://teenage.engineering/guides/ep-40" target="_blank" rel="noopener">official Teenage Engineering EP-40 guide</a>. Click any command to highlight the buttons on the device above.</p>
+    <div class="rd-sections" id="rdSections"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="rd-footer">
+    Sources:
+    <a href="https://teenage.engineering/guides/ep-40" target="_blank" rel="noopener">teenage.engineering/guides/ep-40</a>,
+    <a href="https://teenage.engineering/guides/ep-2350" target="_blank" rel="noopener">guides/ep-2350</a>,
+    <a href="https://dbroesch.github.io/cheat-sheets/ep40-cheatsheet.pdf" target="_blank" rel="noopener">dbroesch EP-40 cheatsheet</a>.
+    Built for personal use — not affiliated with Teenage Engineering.
+  </div>
+
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
