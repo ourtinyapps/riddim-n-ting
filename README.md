@@ -16,7 +16,7 @@ Interactive learning guide for the Teenage Engineering EP-40 Riddim and EP-2350 
 ## File structure
 
 ```
-riddim-guide/
+riddim-n-ting/
 ├── index.html          Main page — structure + inline SVG icon library
 ├── README.md           This file
 ├── css/
@@ -28,23 +28,12 @@ riddim-guide/
 
 No build step. No dependencies. Pure HTML / CSS / vanilla JavaScript.
 
-## Deploy to GitHub Pages
-
-1. Create a new public GitHub repository (e.g. `riddim-guide`).
-2. Upload all files preserving the folder structure (the easiest way: drag-and-drop the entire `riddim-guide` folder contents into the repo via the GitHub web UI, or `git push` it).
-3. Go to **Settings → Pages** in the repo.
-4. Under **Build and deployment → Source**, choose **Deploy from a branch**.
-5. Select branch `main`, folder `/ (root)`, click **Save**.
-6. Wait ~1 minute. GitHub Pages will publish at `https://<your-username>.github.io/riddim-guide/`.
-
-If you want a custom domain, add a `CNAME` file at the root with your domain, and configure DNS as per GitHub Pages docs.
-
 ## Local preview
 
 Open `index.html` directly in a browser — works without a server. For a local server (recommended for clean asset paths):
 
 ```bash
-cd riddim-guide
+cd riddim-n-ting
 python3 -m http.server 8000
 # then open http://localhost:8000
 ```
@@ -76,4 +65,4 @@ The `data-btn` IDs map to the `data-btn` attributes on each button in `index.htm
 - [teenage.engineering/guides/ep-2350](https://teenage.engineering/guides/ep-2350)
 - [dbroesch EP-40 cheatsheet](https://dbroesch.github.io/cheat-sheets/ep40-cheatsheet.pdf)
 
-Built for personal use. Not affiliated with Teenage Engineering.
+Built for personal use by [Dr. Dominic Rafael](https://gotinylabs.com/founder) from [TINYLabs](https://gotinylabs.com). Not affiliated with Teenage Engineering.

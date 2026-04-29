@@ -4,51 +4,251 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Riddim + Ting Learning Guide</title>
-<meta name="description" content="Interactive learning guide for the Teenage Engineering EP-40 Riddim and EP-2350 Ting. Search button combos, hold shift to discover combos, and browse the full reference table.">
+<meta name="description" content="Interactive learning guide for the Teenage Engineering EP-40 Riddim and EP-2350 Ting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
-<!-- ============================================================================
-     SVG ICON LIBRARY (referenced via <use href="#id">)
-     ============================================================================ -->
+<!-- =============================================================================
+     SVG ICON LIBRARY
+     Modeled on the official Teenage Engineering EP-40 icon map.
+     Palette: red #c93120 · orange #e84a1f · cream #e8d9b5 · blue #5ba1c7 · green #2a7c44 · ink #1a4d1a
+     ============================================================================= -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <symbol id="ic-leaf" viewBox="0 0 16 16"><path d="M2 14 Q2 4 14 2 Q12 12 2 14 Z" fill="#f2691f"/><path d="M3 13 L11 5" stroke="#0d2a08" stroke-width="1" fill="none"/></symbol>
-    <symbol id="ic-square" viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="12" rx="1" fill="#0d2a08"/></symbol>
-    <symbol id="ic-square-or" viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="12" rx="1" fill="#f2691f"/></symbol>
-    <symbol id="ic-mute" viewBox="0 0 16 16"><rect x="0" y="0" width="16" height="16" rx="2" fill="#0d2a08"/><text x="8" y="11" font-family="Arial" font-size="6" font-weight="900" fill="#5db94f" text-anchor="middle">MUTE</text></symbol>
-    <symbol id="ic-bar" viewBox="0 0 16 16"><rect x="0" y="0" width="16" height="16" rx="2" fill="#4a9fe2"/><text x="8" y="11" font-family="Arial" font-size="7" font-weight="900" fill="#fff" text-anchor="middle">BAR</text></symbol>
-    <symbol id="ic-bpm" viewBox="0 0 16 16"><rect x="0" y="0" width="16" height="16" rx="2" fill="#0d2a08"/><text x="8" y="11" font-family="Arial" font-size="6.5" font-weight="900" fill="#5db94f" text-anchor="middle">BPM</text></symbol>
-    <symbol id="ic-tic" viewBox="0 0 16 16"><path d="M2 8 L0 0 L8 2 L4 6 L14 16 L8 14 L2 8 Z" fill="#0d2a08"/></symbol>
-    <symbol id="ic-up" viewBox="0 0 16 16"><path d="M8 2 L14 10 L11 10 L11 14 L5 14 L5 10 L2 10 Z" fill="#0d2a08"/></symbol>
-    <symbol id="ic-down" viewBox="0 0 16 16"><path d="M8 14 L14 6 L11 6 L11 2 L5 2 L5 6 L2 6 Z" fill="#0d2a08"/></symbol>
-    <symbol id="ic-rec" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="#e84a1b"/></symbol>
-    <symbol id="ic-play" viewBox="0 0 16 16"><path d="M3 2 L13 8 L3 14 Z" fill="#fff"/></symbol>
-    <symbol id="ic-loop" viewBox="0 0 16 16"><path d="M3 8 A5 5 0 0 1 13 8 L11 6 M13 8 A5 5 0 0 1 3 8 L5 10" stroke="#0d2a08" stroke-width="1.5" fill="none"/></symbol>
-    <symbol id="ic-grid" viewBox="0 0 16 16"><rect x="2" y="2" width="3" height="3" fill="#0d2a08"/><rect x="7" y="2" width="3" height="3" fill="#0d2a08"/><rect x="12" y="2" width="3" height="3" fill="#0d2a08"/><rect x="2" y="7" width="3" height="3" fill="#0d2a08"/><rect x="7" y="7" width="3" height="3" fill="#0d2a08"/><rect x="12" y="7" width="3" height="3" fill="#0d2a08"/></symbol>
-    <symbol id="ic-lion" viewBox="0 0 16 16"><circle cx="8" cy="9" r="5" fill="#0d2a08"/><path d="M2 7 L4 4 L6 6 M14 7 L12 4 L10 6 M3 12 L1 14 M13 12 L15 14 M8 4 L8 1" stroke="#0d2a08" stroke-width="1" fill="none"/><circle cx="6.5" cy="9" r=".8" fill="#5db94f"/><circle cx="9.5" cy="9" r=".8" fill="#5db94f"/></symbol>
-    <symbol id="ic-house" viewBox="0 0 16 16"><path d="M8 2 L14 8 L13 8 L13 14 L3 14 L3 8 L2 8 Z" fill="#0d2a08"/><rect x="6" y="9" width="4" height="5" fill="#5db94f"/></symbol>
-    <symbol id="ic-fist" viewBox="0 0 16 16"><rect x="3" y="6" width="10" height="8" rx="2" fill="#f2691f"/><rect x="4" y="4" width="2" height="3" fill="#f2691f"/><rect x="7" y="4" width="2" height="3" fill="#f2691f"/><rect x="10" y="4" width="2" height="3" fill="#f2691f"/></symbol>
-    <symbol id="ic-mic" viewBox="0 0 16 16"><rect x="6" y="2" width="4" height="7" rx="2" fill="#0d2a08"/><path d="M4 8 Q4 12 8 12 Q12 12 12 8 M8 12 L8 14 M5 14 L11 14" stroke="#0d2a08" stroke-width="1.2" fill="none"/></symbol>
-    <symbol id="ic-palm" viewBox="0 0 16 16"><path d="M8 14 L7 8 M2 5 Q5 3 8 6 M14 5 Q11 3 8 6 M3 8 Q5 5 8 6 M13 8 Q11 5 8 6 M5 4 Q7 2 8 6 M11 4 Q9 2 8 6" stroke="#0d2a08" stroke-width="1.2" fill="none"/></symbol>
-    <symbol id="ic-star" viewBox="0 0 16 16"><path d="M8 1 L9.5 6 L15 6 L10.5 9.5 L12 14.5 L8 11.5 L4 14.5 L5.5 9.5 L1 6 L6.5 6 Z" fill="#0d2a08"/></symbol>
-    <symbol id="ic-warn" viewBox="0 0 16 16"><path d="M8 2 L15 14 L1 14 Z" fill="#0d2a08"/><text x="8" y="13" font-family="Arial" font-size="7" font-weight="900" fill="#5db94f" text-anchor="middle">!</text></symbol>
-    <symbol id="ic-print" viewBox="0 0 16 16"><rect x="3" y="6" width="10" height="6" fill="#0d2a08"/><rect x="5" y="3" width="6" height="3" fill="#0d2a08"/><rect x="5" y="10" width="6" height="3" fill="#5db94f" stroke="#0d2a08" stroke-width="1"/></symbol>
-    <symbol id="ic-meter" viewBox="0 0 16 16"><rect x="2" y="3" width="2" height="10" fill="#5db94f"/><rect x="6" y="5" width="2" height="8" fill="#4a9fe2"/><rect x="10" y="2" width="2" height="11" fill="#f2691f"/></symbol>
-    <symbol id="ic-fan" viewBox="0 0 16 16"><circle cx="8" cy="8" r="2" fill="#0d2a08"/><path d="M8 6 Q4 4 4 1 Q7 3 8 6 M8 6 Q12 4 12 1 Q9 3 8 6 M6 8 Q4 12 1 12 Q3 9 6 8 M10 8 Q12 12 15 12 Q13 9 10 8" fill="#0d2a08"/></symbol>
-    <symbol id="ic-target" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#0d2a08" stroke-width="1"/><circle cx="8" cy="8" r="3" fill="none" stroke="#0d2a08" stroke-width="1"/><circle cx="8" cy="8" r="1" fill="#0d2a08"/></symbol>
-    <symbol id="ic-shoe" viewBox="0 0 16 16"><path d="M2 11 Q2 8 5 8 L8 8 Q11 8 13 10 L14 12 L13 14 L3 14 Q2 13 2 11 Z" fill="#0d2a08"/></symbol>
-    <symbol id="ic-leaves-bl" viewBox="0 0 16 16"><path d="M2 14 L8 8 M14 14 L8 8 M5 14 L8 8 M11 14 L8 8 M8 14 L8 4" stroke="#4a9fe2" stroke-width="1.5" fill="none"/></symbol>
-    <symbol id="ic-leaves-gn" viewBox="0 0 16 16"><path d="M2 14 L8 8 M14 14 L8 8 M5 14 L8 8 M11 14 L8 8 M8 14 L8 4" stroke="#3da84a" stroke-width="1.5" fill="none"/></symbol>
-    <symbol id="ic-leaves-or" viewBox="0 0 16 16"><path d="M2 14 L8 8 M14 14 L8 8 M5 14 L8 8 M11 14 L8 8 M8 14 L8 4" stroke="#f2691f" stroke-width="1.5" fill="none"/></symbol>
-    <symbol id="ic-q" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#0d2a08" stroke-width="2"/><path d="M11 11 L14 14" stroke="#0d2a08" stroke-width="2"/></symbol>
-    <symbol id="ic-peace" viewBox="0 0 16 16"><path d="M5 14 L7 8 M11 14 L9 8 M7 8 L8 4 M9 8 L8 4 M6 4 L7 7 M10 4 L9 7" stroke="#0d2a08" stroke-width="1.4" fill="none"/></symbol>
-    <symbol id="ic-keys" viewBox="0 0 16 16"><rect x="1" y="5" width="14" height="8" fill="#fff" stroke="#0d2a08" stroke-width="1"/><rect x="3" y="5" width="2" height="5" fill="#0d2a08"/><rect x="7" y="5" width="2" height="5" fill="#0d2a08"/><rect x="11" y="5" width="2" height="5" fill="#0d2a08"/></symbol>
-    <symbol id="ic-pencil" viewBox="0 0 16 16"><path d="M2 14 L4 12 L12 4 L14 6 L6 14 Z" fill="#0d2a08"/><path d="M11 5 L13 7" stroke="#5db94f" stroke-width="1"/></symbol>
-    <symbol id="ic-circle-or" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="#f2691f"/></symbol>
-    <symbol id="ic-circle-dk" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="#0d2a08"/></symbol>
-    <symbol id="ic-asterisk" viewBox="0 0 16 16"><path d="M8 2 L8 14 M2 8 L14 8 M3.5 3.5 L12.5 12.5 M12.5 3.5 L3.5 12.5" stroke="#0d2a08" stroke-width="2"/></symbol>
+    <symbol id="ic-battery" viewBox="0 0 16 16">
+      <path d="M8 14 L4 4 L5 7 L7 3 L8 6 L9 3 L11 7 L12 4 Z" fill="#e84a1f"/>
+      <path d="M6 8 L7 11 M9 8 L8 11 M11 8 L10 11" stroke="#e84a1f" stroke-width="1" fill="none"/>
+    </symbol>
+    <symbol id="ic-fader-blue" viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="12" rx="1" fill="#e8d9b5"/><path d="M2 2 L8 2 L2 8 Z" fill="#5ba1c7"/></symbol>
+    <symbol id="ic-fader-green" viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="12" rx="1" fill="#e8d9b5"/><path d="M2 2 L11 2 L2 11 Z" fill="#2a7c44"/></symbol>
+    <symbol id="ic-fader-orange" viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="12" rx="1" fill="#e8d9b5"/><path d="M14 14 L14 5 L5 14 Z" fill="#e84a1f"/></symbol>
+    <symbol id="ic-fader-red" viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="12" rx="1" fill="#c93120"/></symbol>
+    <symbol id="ic-group-a" viewBox="0 0 16 16">
+      <ellipse cx="8" cy="5" rx="5" ry="1.5" fill="#1a4d1a"/>
+      <path d="M3 5 L4 13 L12 13 L13 5" fill="#2a7c44" stroke="#1a4d1a" stroke-width="0.8"/>
+      <ellipse cx="8" cy="5" rx="5" ry="1.5" fill="none" stroke="#1a4d1a" stroke-width="0.8"/>
+    </symbol>
+    <symbol id="ic-group-b" viewBox="0 0 16 16">
+      <circle cx="6" cy="11" r="4" fill="#e84a1f" stroke="#1a4d1a" stroke-width="0.8"/>
+      <circle cx="6" cy="11" r="1.5" fill="#1a4d1a"/>
+      <rect x="7.5" y="3" width="1.8" height="8" fill="#2a7c44"/>
+      <rect x="7" y="2" width="3" height="2" fill="#2a7c44" stroke="#1a4d1a" stroke-width="0.6"/>
+    </symbol>
+    <symbol id="ic-group-c" viewBox="0 0 16 16">
+      <rect x="2" y="3" width="3" height="10" fill="#e8d9b5" stroke="#1a4d1a" stroke-width="0.8"/>
+      <rect x="6.5" y="3" width="3" height="10" fill="#e8d9b5" stroke="#1a4d1a" stroke-width="0.8"/>
+      <rect x="11" y="3" width="3" height="10" fill="#e8d9b5" stroke="#1a4d1a" stroke-width="0.8"/>
+      <rect x="3" y="3" width="1" height="6" fill="#1a4d1a"/>
+      <rect x="7.5" y="3" width="1" height="6" fill="#1a4d1a"/>
+      <rect x="12" y="3" width="1" height="6" fill="#1a4d1a"/>
+    </symbol>
+    <symbol id="ic-group-d" viewBox="0 0 16 16">
+      <circle cx="8" cy="8" r="6" fill="#e84a1f" stroke="#1a4d1a" stroke-width="0.8"/>
+      <circle cx="8" cy="8" r="1.5" fill="#1a4d1a"/>
+      <circle cx="8" cy="8" r="0.5" fill="#e8d9b5"/>
+    </symbol>
+    <symbol id="ic-sync" viewBox="0 0 16 16">
+      <path d="M2 5 Q8 9 14 5 L13 8 Q8 12 3 8 Z" fill="#c93120"/>
+      <path d="M2 9 Q8 13 14 9 L13 12 Q8 16 3 12 Z" fill="#5ba1c7"/>
+    </symbol>
+    <symbol id="ic-midi" viewBox="0 0 16 16">
+      <rect x="2" y="2" width="12" height="12" rx="2" fill="#e8d9b5" stroke="#1a4d1a" stroke-width="0.8"/>
+      <circle cx="6" cy="7" r="1" fill="#1a4d1a"/>
+      <circle cx="10" cy="7" r="1" fill="#1a4d1a"/>
+      <circle cx="8" cy="10" r="1" fill="#1a4d1a"/>
+      <circle cx="5" cy="10" r="0.7" fill="#1a4d1a"/>
+      <circle cx="11" cy="10" r="0.7" fill="#1a4d1a"/>
+    </symbol>
+    <symbol id="ic-usb" viewBox="0 0 16 16">
+      <rect x="2" y="6" width="12" height="4" rx="2" fill="#e8d9b5" stroke="#1a4d1a" stroke-width="0.8"/>
+    </symbol>
+    <symbol id="ic-bar" viewBox="0 0 24 16">
+      <path d="M1 4 L3 1 L6 4 L9 1 L12 4 L15 1 L18 4 L21 1 L23 4 L22 8 L23 12 L21 15 L18 12 L15 15 L12 12 L9 15 L6 12 L3 15 L1 12 L2 8 Z" fill="#5ba1c7"/>
+      <text x="12" y="11" font-family="'Permanent Marker',cursive" font-size="8" font-weight="900" fill="#1a4d1a" text-anchor="middle">BAR</text>
+    </symbol>
+    <symbol id="ic-tic" viewBox="0 0 24 16">
+      <path d="M1 4 L3 1 L6 4 L9 1 L12 4 L15 1 L18 4 L21 1 L23 4 L22 8 L23 12 L21 15 L18 12 L15 15 L12 12 L9 15 L6 12 L3 15 L1 12 L2 8 Z" fill="#c93120"/>
+      <text x="12" y="11" font-family="'Permanent Marker',cursive" font-size="8" font-weight="900" fill="#e8d9b5" text-anchor="middle">TIC</text>
+    </symbol>
+    <symbol id="ic-bpm" viewBox="0 0 24 16">
+      <path d="M1 4 L3 1 L6 4 L9 1 L12 4 L15 1 L18 4 L21 1 L23 4 L22 8 L23 12 L21 15 L18 12 L15 15 L12 12 L9 15 L6 12 L3 15 L1 12 L2 8 Z" fill="#e8d9b5"/>
+      <text x="12" y="11" font-family="'Permanent Marker',cursive" font-size="8" font-weight="900" fill="#1a4d1a" text-anchor="middle">BPM</text>
+    </symbol>
+    <symbol id="ic-loop-or" viewBox="0 0 16 16"><path d="M3 9 A5 5 0 0 1 11 5 L13 7 L11 9 L11 7 M3 9 A5 5 0 0 0 11 13" stroke="#e84a1f" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="ic-loop-cr" viewBox="0 0 16 16"><path d="M3 9 A5 5 0 0 1 11 5 L13 7 L11 9 L11 7 M3 9 A5 5 0 0 0 11 13" stroke="#e8d9b5" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="ic-numpad-r" viewBox="0 0 16 16">
+      <rect x="2" y="2" width="3" height="3" fill="#c93120"/><rect x="6.5" y="2" width="3" height="3" fill="#c93120"/><rect x="11" y="2" width="3" height="3" fill="#c93120"/>
+      <rect x="2" y="6.5" width="3" height="3" fill="#c93120"/><rect x="6.5" y="6.5" width="3" height="3" fill="#c93120"/><rect x="11" y="6.5" width="3" height="3" fill="#c93120"/>
+      <rect x="2" y="11" width="3" height="3" fill="#c93120"/><rect x="6.5" y="11" width="3" height="3" fill="#c93120"/><rect x="11" y="11" width="3" height="3" fill="#c93120"/>
+    </symbol>
+    <symbol id="ic-mute" viewBox="0 0 24 16">
+      <path d="M2 3 L22 3 L22 11 L8 11 L4 14 L5 11 L2 11 Z" fill="#e8d9b5"/>
+      <text x="12" y="9" font-family="'Permanent Marker',cursive" font-size="7" font-weight="900" fill="#1a4d1a" text-anchor="middle">MUTE</text>
+    </symbol>
+    <symbol id="ic-copy" viewBox="0 0 16 16">
+      <path d="M3 14 L3 8 L8 3 L13 8 L13 14 Z" fill="#c93120"/>
+      <text x="8" y="13" font-family="'Permanent Marker',cursive" font-size="8" font-weight="900" fill="#e8d9b5" text-anchor="middle">C</text>
+    </symbol>
+    <symbol id="ic-paste" viewBox="0 0 16 16">
+      <path d="M3 2 L3 8 L8 13 L13 8 L13 2 Z" fill="#c93120"/>
+      <text x="8" y="9" font-family="'Permanent Marker',cursive" font-size="8" font-weight="900" fill="#e8d9b5" text-anchor="middle">V</text>
+    </symbol>
+    <symbol id="ic-save" viewBox="0 0 16 16">
+      <path d="M3 7 L4 13 L12 13 L13 6 L11 5 L10 7 L8 4 L6 5 Z" fill="#2a7c44"/>
+      <path d="M5 9 L11 9 M5 11 L11 11" stroke="#1a4d1a" stroke-width="0.6"/>
+    </symbol>
+    <symbol id="ic-keys-mode" viewBox="0 0 16 16">
+      <rect x="1" y="5" width="14" height="8" fill="#e8d9b5" stroke="#1a4d1a" stroke-width="0.8"/>
+      <rect x="3" y="5" width="2" height="5" fill="#1a4d1a"/>
+      <rect x="7" y="5" width="2" height="5" fill="#1a4d1a"/>
+      <rect x="11" y="5" width="2" height="5" fill="#1a4d1a"/>
+    </symbol>
+    <symbol id="ic-sound-mode" viewBox="0 0 16 16">
+      <path d="M3 12 Q5 6 8 8 Q11 10 13 4" stroke="#5ba1c7" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="3" cy="12" rx="1.5" ry="1.2" fill="#5ba1c7"/>
+      <ellipse cx="13" cy="4" rx="1.5" ry="1.2" fill="#5ba1c7"/>
+    </symbol>
+    <symbol id="ic-trim" viewBox="0 0 16 16">
+      <path d="M2 8 L11 6 L13 5 L13 11 L11 10 L2 8 Z" fill="#e8d9b5" stroke="#1a4d1a" stroke-width="0.8"/>
+      <rect x="2" y="7" width="3" height="2" fill="#e84a1f"/>
+    </symbol>
+    <symbol id="ic-envelope" viewBox="0 0 16 16">
+      <ellipse cx="8" cy="11" rx="6" ry="2" fill="#5ba1c7"/>
+      <path d="M3 9 L13 9 L11 5 L5 5 Z" fill="#e84a1f"/>
+      <rect x="6" y="2" width="4" height="3" fill="#1a4d1a"/>
+    </symbol>
+    <symbol id="ic-time" viewBox="0 0 16 16">
+      <path d="M3 9 L4 7 L6 9 L8 6 L10 9 L12 7 L13 9 L13 12 L3 12 Z" fill="#5ba1c7"/>
+    </symbol>
+    <symbol id="ic-rec" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5" fill="#c93120"/></symbol>
+    <symbol id="ic-play" viewBox="0 0 16 16"><path d="M3 2 L13 8 L3 14 Z" fill="#e8d9b5"/></symbol>
+    <symbol id="ic-sound-text" viewBox="0 0 60 18"><text x="30" y="15" font-family="'Permanent Marker',cursive" font-size="16" fill="#c93120" text-anchor="middle">SOUND</text></symbol>
+    <symbol id="ic-main-text" viewBox="0 0 50 18"><text x="25" y="15" font-family="'Permanent Marker',cursive" font-size="16" fill="#e84a1f" text-anchor="middle">MAIN</text></symbol>
+    <symbol id="ic-tempo-text" viewBox="0 0 60 18"><text x="30" y="15" font-family="'Permanent Marker',cursive" font-size="16" fill="#2a7c44" text-anchor="middle">TEMPO</text></symbol>
+    <symbol id="ic-erase-text" viewBox="0 0 56 18"><text x="28" y="15" font-family="'Permanent Marker',cursive" font-size="16" fill="#e8d9b5" text-anchor="middle">ERASE</text></symbol>
+    <symbol id="ic-system-text" viewBox="0 0 64 18"><text x="32" y="15" font-family="'Permanent Marker',cursive" font-size="16" fill="#5ba1c7" text-anchor="middle">SYSTEM</text></symbol>
+    <symbol id="ic-live" viewBox="0 0 16 16">
+      <path d="M3 6 Q8 3 13 6 L11 9 L13 13 Q8 10 3 13 L5 9 Z" fill="#e8d9b5"/>
+    </symbol>
+    <symbol id="ic-supertone" viewBox="0 0 16 16">
+      <ellipse cx="8" cy="9" rx="5" ry="3" fill="#5ba1c7"/>
+      <rect x="3" y="11" width="10" height="2" fill="#5ba1c7"/>
+      <circle cx="8" cy="5" r="1.5" fill="#5ba1c7"/>
+      <path d="M3 4 L1 3 M13 4 L15 3 M8 3 L8 1" stroke="#5ba1c7" stroke-width="1" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="ic-sample-mode" viewBox="0 0 16 16">
+      <path d="M8 1 L9 6 L14 5 L10 8 L14 11 L9 10 L8 15 L7 10 L2 11 L6 8 L2 5 L7 6 Z" fill="#c93120"/>
+    </symbol>
+    <symbol id="ic-mono" viewBox="0 0 16 16">
+      <rect x="2" y="2" width="12" height="12" rx="1" fill="#c93120"/>
+      <circle cx="8" cy="9" r="3" fill="#1a4d1a"/>
+      <circle cx="8" cy="9" r="1" fill="#e8d9b5"/>
+      <circle cx="8" cy="4.5" r="0.8" fill="#1a4d1a"/>
+    </symbol>
+    <symbol id="ic-stereo" viewBox="0 0 16 16">
+      <rect x="2" y="2" width="12" height="12" rx="1" fill="#c93120"/>
+      <circle cx="5" cy="9" r="2.2" fill="#1a4d1a"/>
+      <circle cx="11" cy="9" r="2.2" fill="#1a4d1a"/>
+      <circle cx="5" cy="4.5" r="0.7" fill="#1a4d1a"/>
+      <circle cx="11" cy="4.5" r="0.7" fill="#1a4d1a"/>
+    </symbol>
+    <symbol id="ic-level-x" viewBox="0 0 16 16">
+      <path d="M8 8 L3 3 L4 5 L5 4 Z" fill="#c93120"/>
+      <path d="M8 8 L13 3 L11 4 L12 5 Z" fill="#e84a1f"/>
+      <path d="M8 8 L3 13 L4 11 L5 12 Z" fill="#5ba1c7"/>
+      <path d="M8 8 L13 13 L12 11 L11 12 Z" fill="#2a7c44"/>
+    </symbol>
+    <symbol id="ic-level-y" viewBox="0 0 16 16">
+      <path d="M8 8 L3 3 L4 5 L5 4 Z" fill="#e8d9b5"/>
+      <path d="M8 8 L13 3 L11 4 L12 5 Z" fill="#5ba1c7"/>
+      <path d="M8 8 L3 13 L4 11 L5 12 Z" fill="#e84a1f"/>
+      <path d="M8 8 L13 13 L12 11 L11 12 Z" fill="#2a7c44"/>
+    </symbol>
+    <symbol id="ic-metronome" viewBox="0 0 16 16">
+      <path d="M5 14 L3 14 L5 3 L11 3 L13 14 L11 14 Z" fill="#2a7c44" stroke="#1a4d1a" stroke-width="0.8"/>
+      <path d="M8 14 L10 4" stroke="#e84a1f" stroke-width="1" stroke-linecap="round"/>
+      <circle cx="10" cy="4" r="1" fill="#e84a1f"/>
+    </symbol>
+    <symbol id="ic-chop" viewBox="0 0 16 16">
+      <path d="M2 13 L13 4 L14 6 L4 14 Z" fill="#e8d9b5" stroke="#1a4d1a" stroke-width="0.6"/>
+      <rect x="2" y="11" width="3" height="3" fill="#1a4d1a"/>
+    </symbol>
+    <symbol id="ic-loop-play" viewBox="0 0 16 16">
+      <circle cx="8" cy="9" r="2" fill="#1a4d1a"/>
+      <path d="M8 7 Q5 5 5 2 Q7 4 8 7 M8 7 Q11 5 11 2 Q9 4 8 7 M6 9 Q4 12 1 12 Q3 10 6 9 M10 9 Q12 12 15 12 Q13 10 10 9" fill="#2a7c44"/>
+    </symbol>
+    <symbol id="ic-time-target" viewBox="0 0 16 16">
+      <circle cx="8" cy="8" r="6" fill="none" stroke="#5ba1c7" stroke-width="1.5"/>
+      <circle cx="8" cy="8" r="3" fill="none" stroke="#5ba1c7" stroke-width="1.5"/>
+      <circle cx="8" cy="8" r="1" fill="#5ba1c7"/>
+    </symbol>
+    <symbol id="ic-empty-pat" viewBox="0 0 16 16">
+      <path d="M8 1 L8 15 M2 8 L14 8 M3 3 L13 13 M13 3 L3 13" stroke="#c93120" stroke-width="2.5" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="ic-fx-lion" viewBox="0 0 16 16">
+      <path d="M2 7 L4 5 L5 7 L6 5 L7 6 M14 7 L12 5 L11 7 L10 5 L9 6 M2 11 L4 13 L5 12 M14 11 L12 13 L11 12 M8 3 L7 5 L9 5 Z" fill="#e84a1f"/>
+      <circle cx="8" cy="9" r="4" fill="#e84a1f"/>
+      <circle cx="6.5" cy="9" r="0.7" fill="#1a4d1a"/>
+      <circle cx="9.5" cy="9" r="0.7" fill="#1a4d1a"/>
+      <path d="M7.5 11 Q8 12 8.5 11" stroke="#1a4d1a" stroke-width="0.6" fill="none"/>
+    </symbol>
+    <symbol id="ic-undo" viewBox="0 0 16 16">
+      <path d="M3 14 L3 8 L8 3 L13 8 L13 14 Z" fill="#e8d9b5" stroke="#1a4d1a" stroke-width="0.8"/>
+      <rect x="6" y="9" width="4" height="5" fill="#1a4d1a"/>
+    </symbol>
+    <symbol id="ic-compressor" viewBox="0 0 16 16">
+      <ellipse cx="6" cy="11" rx="4" ry="3" fill="#e84a1f"/>
+      <circle cx="9.5" cy="6" r="1.3" fill="#e84a1f"/>
+      <circle cx="11" cy="7" r="1" fill="#e84a1f"/>
+      <circle cx="12" cy="8.5" r="0.9" fill="#e84a1f"/>
+      <circle cx="13" cy="10" r="0.8" fill="#e84a1f"/>
+    </symbol>
+    <symbol id="ic-mic" viewBox="0 0 16 16">
+      <rect x="2" y="2" width="12" height="12" rx="2" fill="#e8d9b5" stroke="#1a4d1a" stroke-width="0.8"/>
+      <rect x="6.5" y="4" width="3" height="5" rx="1.5" fill="#1a4d1a"/>
+      <path d="M5 8 Q5 11 8 11 Q11 11 11 8 M8 11 L8 13" stroke="#1a4d1a" stroke-width="0.8" fill="none"/>
+    </symbol>
+    <symbol id="ic-linein" viewBox="0 0 16 16">
+      <rect x="2" y="2" width="12" height="12" rx="2" fill="#e8d9b5" stroke="#1a4d1a" stroke-width="0.8"/>
+      <rect x="4" y="6" width="6" height="4" rx="1" fill="#1a4d1a"/>
+      <rect x="10" y="7" width="2" height="2" fill="#1a4d1a"/>
+    </symbol>
+    <symbol id="ic-quantize" viewBox="0 0 16 16">
+      <circle cx="7" cy="8" r="5" fill="none" stroke="#5ba1c7" stroke-width="2.2"/>
+      <path d="M10 11 L14 14" stroke="#5ba1c7" stroke-width="2.2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="ic-free" viewBox="0 0 16 16">
+      <path d="M5 14 L7 8 M11 14 L9 8 M7 8 L7 4 M9 8 L9 4 M6 4 L7 6 L8 4 M10 4 L9 6 L8 4" stroke="#e8d9b5" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <rect x="6" y="13" width="4" height="2" fill="#e8d9b5"/>
+    </symbol>
+    <symbol id="ic-computer" viewBox="0 0 16 16">
+      <rect x="2" y="6" width="12" height="6" fill="#e84a1f" stroke="#1a4d1a" stroke-width="0.6"/>
+      <rect x="4" y="3" width="8" height="3" fill="#e84a1f" stroke="#1a4d1a" stroke-width="0.6"/>
+      <rect x="5" y="10" width="6" height="3" fill="#e8d9b5" stroke="#1a4d1a" stroke-width="0.6"/>
+      <circle cx="11.5" cy="8" r="0.7" fill="#1a4d1a"/>
+    </symbol>
+    <symbol id="ic-clip" viewBox="0 0 24 16">
+      <path d="M12 1 L23 14 L1 14 Z" fill="#c93120"/>
+      <text x="12" y="13" font-family="'Permanent Marker',cursive" font-size="6" fill="#e8d9b5" text-anchor="middle">CLIP</text>
+      <circle cx="12" cy="6" r="0.6" fill="#e8d9b5"/>
+      <rect x="11.5" y="7" width="1" height="3" fill="#e8d9b5"/>
+    </symbol>
+    <symbol id="ic-swing" viewBox="0 0 28 16">
+      <path d="M5 14 L4 8 M2 5 Q4 3 5 6 M8 5 Q6 3 5 6 M3 8 Q4 5 5 6 M7 8 Q6 5 5 6" stroke="#e84a1f" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      <path d="M7 9 L26 9 L25 13 L8 13 L9 11 Z" fill="#e8d9b5" stroke="#1a4d1a" stroke-width="0.6"/>
+      <text x="17" y="12.5" font-family="'Permanent Marker',cursive" font-size="6" fill="#1a4d1a" text-anchor="middle">SWING</text>
+    </symbol>
+    <symbol id="ic-pencil" viewBox="0 0 16 16">
+      <path d="M2 14 L4 12 L12 4 L14 6 L6 14 Z" fill="#e8d9b5" stroke="#1a4d1a" stroke-width="0.6"/>
+      <path d="M11 5 L13 7" stroke="#1a4d1a" stroke-width="0.6"/>
+    </symbol>
+    <symbol id="ic-asterisk" viewBox="0 0 16 16">
+      <path d="M8 2 L8 14 M2 8 L14 8 M3.5 3.5 L12.5 12.5 M12.5 3.5 L3.5 12.5" stroke="#1a4d1a" stroke-width="2"/>
+    </symbol>
   </defs>
 </svg>
 
@@ -64,15 +264,17 @@
     <div class="rd-topbar-actions">
       <button class="rd-btn-base combo" id="rdComboBtn" title="Toggle combo mode (or hold Shift on desktop)">+ COMBO</button>
       <button class="rd-btn-base ting" id="rdTingBtn" title="Toggle Ting panel">+ TING</button>
+      <a href="icons.html" class="rd-btn-base">ICONS</a>
+      <a href="conventions.html" class="rd-btn-base">GUIDE</a>
       <button class="rd-btn-base" id="rdClearBtn" title="Clear all">Clear</button>
     </div>
   </div>
 
-  <!-- COMBO BAR (hidden by default) -->
+  <!-- COMBO BAR -->
   <div class="rd-combo-bar" id="rdComboBar">
     <div class="rd-combo-head">
       <span class="label">COMBO MODE</span>
-      <span style="font-size: 11px; color: #5a5a5a;">Tap buttons in sequence to find combos</span>
+      <span style="font-size:11px;color:#5a5a5a">Tap buttons in sequence to find combos</span>
       <span class="actions">
         <button id="rdComboClear">Clear</button>
         <button id="rdComboDone">Done</button>
@@ -88,7 +290,6 @@
   <div class="rd-stage">
     <div class="rd-device">
 
-      <!-- I/O ROW -->
       <div class="rd-iorow">
         <div class="rd-iotab cream">OUTPUT</div>
         <div class="rd-iotab orange">INPUT</div>
@@ -102,7 +303,6 @@
         <div class="rd-iotab cream">POWER</div>
       </div>
 
-      <!-- LCD with overlapping brand plate + speaker -->
       <div class="rd-lcd-container">
         <div class="rd-lcd">
           <div class="rd-lcd-screw t"></div>
@@ -118,70 +318,72 @@
 
           <div class="rd-lcd-content">
             <div class="rd-lcd-icons">
-              <svg><use href="#ic-leaves-or"/></svg>
-              <svg><use href="#ic-square"/></svg>
-              <svg><use href="#ic-leaves-gn"/></svg>
-              <svg><use href="#ic-up"/></svg>
-              <svg><use href="#ic-target"/></svg>
-              <svg><use href="#ic-circle-dk"/></svg>
-              <svg><use href="#ic-bar"/></svg>
-              <svg><use href="#ic-mute"/></svg>
-              <svg><use href="#ic-square"/></svg>
-              <svg><use href="#ic-leaves-or"/></svg>
-              <svg><use href="#ic-up"/></svg>
-              <svg><use href="#ic-down"/></svg>
-              <svg><use href="#ic-grid"/></svg>
-              <svg><use href="#ic-tic"/></svg>
-              <svg><use href="#ic-keys"/></svg>
-              <svg><use href="#ic-square-or"/></svg>
-              <svg><use href="#ic-grid"/></svg>
-              <svg><use href="#ic-pencil"/></svg>
+              <svg><use href="#ic-battery"/></svg>
+              <svg><use href="#ic-fader-blue"/></svg>
+              <svg><use href="#ic-group-a"/></svg>
+              <svg><use href="#ic-sync"/></svg>
+              <svg><use href="#ic-midi"/></svg>
+              <svg><use href="#ic-usb"/></svg>
+              <svg style="width:30px"><use href="#ic-bar"/></svg>
+              <svg style="width:30px"><use href="#ic-mute"/></svg>
+              <svg><use href="#ic-fader-green"/></svg>
+              <svg><use href="#ic-group-b"/></svg>
+              <svg><use href="#ic-copy"/></svg>
+              <svg><use href="#ic-paste"/></svg>
+              <svg><use href="#ic-save"/></svg>
+              <svg style="width:30px"><use href="#ic-tic"/></svg>
+              <svg><use href="#ic-keys-mode"/></svg>
+              <svg><use href="#ic-fader-orange"/></svg>
+              <svg><use href="#ic-group-c"/></svg>
+              <svg><use href="#ic-sound-mode"/></svg>
+              <svg><use href="#ic-trim"/></svg>
+              <svg><use href="#ic-envelope"/></svg>
+              <svg><use href="#ic-time"/></svg>
               <svg><use href="#ic-rec"/></svg>
               <svg><use href="#ic-play"/></svg>
-              <svg><use href="#ic-loop"/></svg>
-              <svg><use href="#ic-grid"/></svg>
+              <svg><use href="#ic-loop-cr"/></svg>
+              <svg><use href="#ic-numpad-r"/></svg>
             </div>
             <div class="rd-lcd-display"><div class="seg">88.88</div></div>
             <div class="rd-lcd-icons">
-              <svg><use href="#ic-bpm"/></svg>
-              <svg><use href="#ic-star"/></svg>
-              <svg><use href="#ic-square-or"/></svg>
-              <svg><use href="#ic-circle-dk"/></svg>
-              <svg><use href="#ic-leaves-gn"/></svg>
-              <svg><use href="#ic-leaves-bl"/></svg>
-              <svg><use href="#ic-leaves-or"/></svg>
-              <svg><use href="#ic-leaves-gn"/></svg>
-              <svg><use href="#ic-shoe"/></svg>
-              <svg><use href="#ic-fan"/></svg>
-              <svg><use href="#ic-target"/></svg>
-              <svg><use href="#ic-leaves-bl"/></svg>
-              <svg><use href="#ic-leaves-or"/></svg>
-              <svg><use href="#ic-leaves-gn"/></svg>
-              <svg><use href="#ic-lion"/></svg>
-              <svg><use href="#ic-house"/></svg>
-              <svg><use href="#ic-fist"/></svg>
+              <svg style="width:30px"><use href="#ic-bpm"/></svg>
+              <svg><use href="#ic-sample-mode"/></svg>
+              <svg><use href="#ic-mono"/></svg>
+              <svg><use href="#ic-stereo"/></svg>
+              <svg><use href="#ic-level-x"/></svg>
+              <svg><use href="#ic-level-y"/></svg>
+              <svg><use href="#ic-metronome"/></svg>
+              <svg><use href="#ic-chop"/></svg>
+              <svg><use href="#ic-loop-play"/></svg>
+              <svg><use href="#ic-time-target"/></svg>
+              <svg><use href="#ic-level-x"/></svg>
+              <svg><use href="#ic-level-y"/></svg>
+              <svg><use href="#ic-empty-pat"/></svg>
+              <svg><use href="#ic-fx-lion"/></svg>
+              <svg><use href="#ic-undo"/></svg>
+              <svg><use href="#ic-compressor"/></svg>
               <svg><use href="#ic-mic"/></svg>
-              <svg><use href="#ic-meter"/></svg>
-              <svg><use href="#ic-q"/></svg>
-              <svg><use href="#ic-peace"/></svg>
+              <svg><use href="#ic-linein"/></svg>
+              <svg><use href="#ic-quantize"/></svg>
+              <svg><use href="#ic-free"/></svg>
+              <svg><use href="#ic-supertone"/></svg>
             </div>
           </div>
 
           <div class="rd-lcd-bottom">
-            <span class="grp"><svg><use href="#ic-leaves-gn"/></svg><svg><use href="#ic-circle-dk"/></svg><span class="lbl">SOUND</span></span>
-            <span class="grp"><svg><use href="#ic-pencil"/></svg><span class="lbl or">MAIN</span></span>
-            <span class="grp"><svg><use href="#ic-asterisk"/></svg><span class="lbl">TEMPO</span></span>
-            <span class="lbl">ERASE</span>
-            <span class="lbl">SYSTEM</span>
-            <span class="grp"><svg><use href="#ic-print"/></svg><svg><use href="#ic-warn"/></svg><span class="lbl">CLIP</span></span>
-            <span class="grp"><svg><use href="#ic-meter"/></svg><svg><use href="#ic-palm"/></svg><span class="lbl">SWING</span></span>
+            <span class="grp"><svg><use href="#ic-fader-red"/></svg><svg><use href="#ic-group-d"/></svg><svg style="width:50px;height:18px"><use href="#ic-sound-text"/></svg></span>
+            <span class="grp"><svg><use href="#ic-pencil"/></svg><svg style="width:42px;height:18px"><use href="#ic-main-text"/></svg></span>
+            <span class="grp"><svg><use href="#ic-asterisk"/></svg><svg style="width:50px;height:18px"><use href="#ic-tempo-text"/></svg></span>
+            <svg style="width:48px;height:18px"><use href="#ic-erase-text"/></svg>
+            <svg style="width:54px;height:18px"><use href="#ic-system-text"/></svg>
+            <span class="grp"><svg><use href="#ic-computer"/></svg><svg style="width:24px"><use href="#ic-clip"/></svg></span>
+            <svg style="width:30px"><use href="#ic-swing"/></svg>
           </div>
         </div>
       </div>
 
       <div class="rd-original">ORIGINAL LAYERING MACHINE</div>
 
-      <!-- CONTROLS ROW -->
       <div class="rd-controls">
         <div class="rd-vol-wrap">
           <div class="rd-ctrl-lbl">VOLUME</div>
@@ -210,7 +412,6 @@
         </div>
       </div>
 
-      <!-- LED INDICATORS -->
       <div class="rd-leds-row">
         <div></div>
         <div class="rd-leds">
@@ -221,7 +422,6 @@
         <div></div><div></div>
       </div>
 
-      <!-- MAIN GRID: pads, fader, side buttons -->
       <div class="rd-main-grid">
         <div class="rd-leftcol">
           <button class="rd-fbtn keys" data-btn="keys">KEYS</button>
@@ -230,18 +430,10 @@
           <button class="rd-fbtn shift" data-btn="shift">SHIFT</button>
         </div>
         <div class="rd-groups">
-          <div class="rd-group" data-btn="group-a" title="Group A — Drums">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="14" r="6" fill="#f2691f" stroke="#1a1a1a" stroke-width="1"/><ellipse cx="12" cy="9" rx="6" ry="2" fill="#1a4d1a" stroke="#1a1a1a" stroke-width="1"/><line x1="6" y1="9" x2="6" y2="14" stroke="#1a1a1a"/><line x1="18" y1="9" x2="18" y2="14" stroke="#1a1a1a"/></svg>
-          </div>
-          <div class="rd-group" data-btn="group-b" title="Group B — Bass">
-            <svg viewBox="0 0 24 24"><circle cx="9" cy="17" r="5" fill="#f2691f" stroke="#1a1a1a"/><circle cx="9" cy="17" r="2" fill="#1a4d1a"/><rect x="11" y="3" width="3" height="13" fill="#1a4d1a" stroke="#1a1a1a"/><rect x="10" y="2" width="5" height="3" fill="#1a4d1a" stroke="#1a1a1a"/></svg>
-          </div>
-          <div class="rd-group" data-btn="group-c" title="Group C — Melodic">
-            <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" fill="#fff" stroke="#1a1a1a"/><rect x="5" y="6" width="2" height="7" fill="#1a1a1a"/><rect x="9" y="6" width="2" height="7" fill="#1a1a1a"/><rect x="13" y="6" width="2" height="7" fill="#1a1a1a"/><rect x="17" y="6" width="2" height="7" fill="#1a1a1a"/></svg>
-          </div>
-          <div class="rd-group" data-btn="group-d" title="Group D — FX/Vocal">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="#1a1a1a"/><circle cx="12" cy="12" r="5" fill="#f2691f"/><circle cx="12" cy="12" r="1.5" fill="#fff"/></svg>
-          </div>
+          <div class="rd-group" data-btn="group-a" title="Group A — Drums"><svg viewBox="0 0 16 16"><use href="#ic-group-a"/></svg></div>
+          <div class="rd-group" data-btn="group-b" title="Group B — Bass"><svg viewBox="0 0 16 16"><use href="#ic-group-b"/></svg></div>
+          <div class="rd-group" data-btn="group-c" title="Group C — Melodic"><svg viewBox="0 0 16 16"><use href="#ic-group-c"/></svg></div>
+          <div class="rd-group" data-btn="group-d" title="Group D — FX/Vocal"><svg viewBox="0 0 16 16"><use href="#ic-group-d"/></svg></div>
         </div>
         <div class="rd-pads-wrap">
           <div class="rd-pad-label-row"><div class="rd-pad-label"><span class="ld"></span>LPF</div><div class="rd-pad-label"><span class="ld"></span>HPF</div><div class="rd-pad-label"><span class="ld"></span>→FX</div></div>
@@ -283,7 +475,6 @@
       </div>
     </div>
 
-    <!-- TING PANEL (slide-in) -->
     <div class="rd-ting" id="rdTing">
       <h3>EP-2350 TING</h3>
       <div class="rd-ting-mic">
@@ -318,17 +509,14 @@
     </div>
   </div>
 
-  <!-- INFO CARD -->
   <div class="rd-info" id="rdInfo"></div>
 
-  <!-- SECTIONS REFERENCE -->
   <div class="rd-sections-wrap">
     <h3 class="rd-sections-title">All commands by section</h3>
     <p class="rd-sections-sub">Organised per the <a href="https://teenage.engineering/guides/ep-40" target="_blank" rel="noopener">official Teenage Engineering EP-40 guide</a>. Click any command to highlight the buttons on the device above.</p>
     <div class="rd-sections" id="rdSections"></div>
   </div>
 
-  <!-- FOOTER -->
   <div class="rd-footer">
     Sources:
     <a href="https://teenage.engineering/guides/ep-40" target="_blank" rel="noopener">teenage.engineering/guides/ep-40</a>,

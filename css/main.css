@@ -268,6 +268,19 @@ body.combo-active [data-btn] { cursor: crosshair; }
    LCD strip
    ============================================================================ */
 
+.rd-page-nav { padding: 12px 0; }
+.rd-page-nav a { color: #b8430d; font-size: 12px; font-weight: 600; text-decoration: none; }
+.rd-page-nav a:hover { text-decoration: underline; }
+
+.rd-ref-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 16px;
+  border-radius: 8px;
+  border: 1px solid #c8c2b0;
+}
+   
 .rd-lcd-container { position: relative; margin: 0 16px; }
 .rd-lcd {
   background: linear-gradient(180deg, #3da84a 0%, #2e8b3a 100%);
